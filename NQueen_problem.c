@@ -40,3 +40,20 @@ int main(){
 	printf("The positions of queens are:");
 	NQueen(1,n);
 }
+
+
+/*
+Time complexity O(n!)
+
+Output --->
+
+Enter the value of n:4
+The positions of queens are:
+
+Permutation 1:
+[1,2]  [2,4]  [3,1]  [4,3]
+
+Permutation 2:
+[1,3]  [2,1]  [3,4]  [4,2]
+
+*/
