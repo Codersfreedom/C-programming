@@ -82,6 +82,7 @@ printf("<-%d",j);
 }
 
 /*
+Time Complexity: O(ElogV)
 
 Enter no. of vertices:5
 
