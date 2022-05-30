@@ -35,47 +35,6 @@ void main()
  printf("\nEnter the number of nodes: " );
 
  scanf("%d", &n);
-
-
-
-/*
-
- printf("\nIf edge exists then enter 1 else enter 0 \n");
-
- for(i=1; i<=n; i++)
-
- {
-
-  x[i]=0;
-
-  for(j=1; j<=n; j++)
-
-  {
-
-   if(i==j)
-
-    g[i][j]=0;
-
-   else
-
-   {
-
-    printf("%d -> %d: " , i, j);
-
-    scanf("%d", &temp);
-
-    g[i][j]=g[j][i]=temp;
-
-   }
-
-  }
-
- }
-
-*/
-
-
-
  printf("\nEnter Adjacency Matrix:\n");
 
  for(i=1;i<=n;i++)
@@ -233,3 +192,32 @@ void nextValue(int k)
  }
 
 }
+
+
+/*
+Time Coplexity: O(m^v)
+
+Output--->
+
+Enter the number of nodes: 5
+
+Enter Adjacency Matrix:
+0 1 0 1 1
+1 0 1 1 0
+0 1 0 1 1
+1 1 1 0 1
+1 0 1 1 0
+
+Possible Solutions are
+1 2 1 3 2
+1 3 1 2 3
+2 1 2 3 1
+2 3 2 1 3
+3 1 3 2 1
+3 2 3 1 2
+
+The chromatic number is 3
+The total number of solutions is 6
+
+*/
+
