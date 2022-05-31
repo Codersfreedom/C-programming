@@ -48,6 +48,9 @@ int main(){
     printf("The minimum spanning tree weight is: %d",minwt);
     //getch();
 }
+
+// Time complexity: O(ElogV)
+
 /*
 5 5
 0 1 5
