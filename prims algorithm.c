@@ -1,84 +1,71 @@
 #include<stdio.h>
 #include<stdlib.h>
- 
-#define infinity 9999
-#define MAX 20
- 
-int G[MAX][MAX],spanning[MAX][MAX],n;
- 
-int prims();
- 
-int main()
-{
-int i,j,total_cost;
-printf("Enter no. of vertices:");
-scanf("%d",&n);
-printf("\nEnter the adjacency matrix:\n");
-for(i=0;i<n;i++)
-for(j=0;j<n;j++)
-scanf("%d",&G[i][j]);
-total_cost=prims();
-printf("\nspanning tree matrix:\n");
-for(i=0;i<n;i++)
-{
-printf("\n");
-for(j=0;j<n;j++)
-printf("%d\t",spanning[i][j]);
+#include<limits.h>
+
+int minkey(int *k,int *mst,int v){
+    int mini=INT_MAX,min,i;
+    for(i=0;i<v;i++){
+        if(mst[i]==0 && k[i]<mini){
+            mini=k[i];
+            min=i;
+        }
+    }
+    return min;
 }
-printf("\n\nTotal cost of spanning tree=%d",total_cost);
-return 0;
+
+int main(){
+    int mat[20][20],i,j,e,v,a,b,wt,sv;
+    int p[20],k[20],mst[20],edge,minwt=0;
+    printf("Enter the number of vertices and edges: ");
+    scanf("%d%d",&v,&e);
+    printf("Enter the edges:\n");
+    for(i=0;i<v;i++) for(j=0;j<v;j++) mat[i][j]=INT_MAX;
+    for(i=0;i<e;i++){
+        scanf("%d%d%d",&a,&b,&wt);
+        mat[a][b]=mat[b][a]=wt;
+    }
+    for(i=0;i<v;i++){
+        k[i]=INT_MAX;mst[i]=0;
+    }//mst[i]=0 means this ith edge is not in the mst, 1 means present
+    k[0]=0;
+    p[0]=-1;
+    for(i=0;i<v-1;i++){
+        edge=minkey(k,mst,v);
+        mst[edge]=1;
+        for(j=0;j<v;j++){
+            if(mat[edge][j]!=INT_MAX && mst[j]==0 && mat[edge][j]<k[j]){
+                p[j]=edge;
+                k[j]=mat[edge][j];
+            }
+        }
+    }
+    printf("The minimum spanning tree is...\nEdges\tWeights\n");
+    for(i=1;i<v;i++){
+        //printf("%d %d\t%d\n",p[i],i,mat[i][p[i]]);
+        printf("%d %d\t%d\n",p[i],i,k[i]);
+        minwt+=mat[i][p[i]];
+    }
+    printf("The minimum spanning tree weight is: %d",minwt);
+    //getch();
 }
- 
-int prims()
-{
-int cost[MAX][MAX];
-int u,v,min_distance,distance[MAX],from[MAX];
-int visited[MAX],no_of_edges,i,min_cost,j;
-//create cost[][] matrix,spanning[][]
-for(i=0;i<n;i++)
-for(j=0;j<n;j++)
-{
-if(G[i][j]==0)
-cost[i][j]=infinity;
-else
-cost[i][j]=G[i][j];
-spanning[i][j]=0;
-}
-//initialise visited[],distance[] and from[]
-distance[0]=0;
-visited[0]=1;
-for(i=1;i<n;i++)
-{
-distance[i]=cost[0][i];
-from[i]=0;
-visited[i]=0;
-}
-min_cost=0; //cost of spanning tree
-no_of_edges=n-1; //no. of edges to be added
-while(no_of_edges>0)
-{
-//find the vertex at minimum distance from the tree
-min_distance=infinity;
-for(i=1;i<n;i++)
-if(visited[i]==0&&distance[i]<min_distance)
-{
-v=i;
-min_distance=distance[i];
-}
-u=from[v];
-//insert the edge in spanning tree
-spanning[u][v]=distance[v];
-spanning[v][u]=distance[v];
-no_of_edges--;
-visited[v]=1;
-//updated the distance[] array
-for(i=1;i<n;i++)
-if(visited[i]==0&&cost[i][v]<distance[i])
-{
-distance[i]=cost[i][v];
-from[i]=v;
-}
-min_cost=min_cost+cost[u][v];
-}
-return(min_cost);
-}
+/*
+5 5
+0 1 5
+1 2 2
+2 3 3
+0 3 10
+3 4 12
+
+
+7 9
+0 5 10
+5 4 25
+4 6 24
+4 3 22
+6 3 18
+6 1 14
+3 2 12
+1 2 16
+2 0 28
+
+*/
