@@ -74,3 +74,48 @@ void main()
     put();
     getch();
 }
+
+
+/*
+
+Enter No. of Cities: 5
+
+Enter Cost Matrix
+
+Enter Elements of Row # : 1
+0 3 4 2 5
+
+Enter Elements of Row # : 2
+4 0 3 3 2
+
+Enter Elements of Row # : 3
+5 3 0 2 2
+
+Enter Elements of Row # : 4
+4 2 1 0 3
+
+Enter Elements of Row # : 5
+3 2 2 0 3
+
+
+The cost list is:
+
+
+
+        0       3       4       2       5
+
+        4       0       3       3       2
+
+        5       3       0       2       2
+
+        4       2       1       0       3
+
+        3       2       2       0       3
+
+The Path is:
+
+1 -->5 -->3 -->4 -->2 -->1
+
+Minimum cost:15
+
+*/
