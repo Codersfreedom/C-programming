@@ -58,7 +58,10 @@ struct pair max_min(int arr[], int low, int high)
 int main()
 {
     int arr[10];
-    int n = sizeof(arr) / sizeof(int);
+    int n;
+    printf("Enter the size of the array:\n");
+    scanf("%d",&n);
+    printf("Enter the elements of the array: \n");
     for(int i= 0;i<n;i++){
         scanf("%d",&arr[i]);
     }
