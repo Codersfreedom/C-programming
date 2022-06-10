@@ -57,8 +57,11 @@ struct pair max_min(int arr[], int low, int high)
 }
 int main()
 {
-    int arr[] = {4,6,5,7,8,3};
+    int arr[10];
     int n = sizeof(arr) / sizeof(int);
+    for(int i= 0;i<n;i++){
+        scanf("%d",&arr[i]);
+    }
     struct pair minmax = max_min(arr, 0, n - 1);
     printf("Max: %d\n", minmax.max);
     printf("Min: %d\n", minmax.min);
