@@ -43,3 +43,19 @@ int main() {
 	schedule(data, n);
 	return 0;
 }
+
+/*
+
+Enter number of jobs:
+5
+Enter jobs in the order (id deadline profit):
+1 1 90
+2 2 50
+3 3 60
+4 1 45
+5 1 55
+The sequence of job is: 
+1 2 3 
+The max profit is: 200
+	
+*/
