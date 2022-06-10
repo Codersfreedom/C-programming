@@ -62,9 +62,15 @@ void mergeSort(int A[], int low, int high){
 
 int main()
 {
-    // int A[] = {9, 14, 4, 8, 7, 5, 6};
-    int A[] = {9, 1, 4, 14, 4, 15, 6};
-    int n = 7;
+   
+    int A[10];
+    int n;
+    printf("Enter the size of the array:\n");
+    scanf("%d",&n);
+    printf("Enter the elements of the array: \n");
+    for(int i= 0;i<n;i++){
+        scanf("%d",&A[i]);
+    }
     printArray(A, n);
     mergeSort(A, 0, 6);
     printArray(A, n);
