@@ -32,9 +32,15 @@ void swap(int *a, int *b)
     *b = temp;
 }
 int main(){
-    int arr[] = {345,56,34,5,3423,34};
-    int size = sizeof(arr)/ sizeof(int);
-    printf("Unsorted arry: \n");
+    int arr[100];
+    int size;
+     printf("Enter the size of the array:\n ");
+    scanf("%d",&size);
+    printf("Enter the elements of the array: \n");
+    for(int i = 0; i<size;i++){
+        scanf("%d",&arr[i]);
+    }
+    printf("Unsorted array elements: \n");
     display(arr,size);
     printf("sorted array: \n");
     SelectionSort(arr,size);
