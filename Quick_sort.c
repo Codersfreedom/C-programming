@@ -57,15 +57,21 @@ void quickSort(int A[], int low, int high)
 
 int main()
 {
-    //int A[] = {3, 5, 2, 13, 12, 3, 2, 13, 45};
-    int A[] = {9, 4, 4, 8, 7, 5, 6};
-    // 3, 5, 2, 13, 12, 3, 2, 13, 45
-    // 3, 2, 2, 13i, 12, 3j, 5, 13, 45
-    // 3, 2, 2, 3j, 12i, 13, 5, 13, 45 --> first call to partition returns 3
-    int n = 9;
-    n =7;
+   
+    int A[100];
+  
+    int n;
+    
+    printf("Enter the size of the array:\n ");
+    scanf("%d",&n);
+    printf("Enter the elements of the array: \n");
+    for(int i = 0; i<n;i++){
+        scanf("%d",&A[i]);
+    }
+    printf("Unsorted array elements: \n");
     printArray(A, n);
     quickSort(A, 0, n - 1);
+    printf("Sorted array elements: \n");
     printArray(A, n);
     return 0;
 }
